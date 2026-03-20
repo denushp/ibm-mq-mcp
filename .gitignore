@@ -1,5 +1,5 @@
 # Binaries
-ibm-mq-mcp
+/ibm-mq-mcp
 *.exe
 *.exe~
 *.dll
@@ -25,10 +25,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
-
-# AI config (project-specific)
-CLAUDE.md
-AGENTS.md
 
 # Claude Code local config (should not be committed)
 .claude/

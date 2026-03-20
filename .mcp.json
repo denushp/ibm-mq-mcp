@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "ibm-mq": {
+      "command": "${IBM_MQ_MCP_BIN:-ibm-mq-mcp}",
+      "args": [],
+      "env": {
+        "MQ_INSTALL_PATH": "${MQ_INSTALL_PATH}",
+        "DYLD_LIBRARY_PATH": "${MQ_INSTALL_PATH}/lib64",
+        "LD_LIBRARY_PATH": "${MQ_INSTALL_PATH}/lib64"
+      }
+    }
+  }
+}

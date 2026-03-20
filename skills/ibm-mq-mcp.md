@@ -1,50 +1,16 @@
 # IBM MQ MCP Skill
 
-Use this skill when you need to manage IBM MQ queue managers, queues, channels, or messages.
+The canonical shared skill now lives at:
 
-## Connection
+- `skills/ibm-mq-mcp/SKILL.md`
 
-All tools require a `connection` object. Get connection details from project environment or config.
+Use that directory when you want to install the skill into:
 
-```json
-{
-  "host": "mq.example.com",
-  "port": 1414,
-  "channel": "SYSTEM.ADMIN.SVRCONN",
-  "queueManager": "QM1",
-  "user": "",
-  "password": ""
-}
-```
+- `~/.codex/skills/ibm-mq-mcp`
+- `~/.claude/skills/ibm-mq-mcp`
 
-**Required**: `host`, `port`, `channel`, `queueManager`
-**Optional**: `user`, `password` (leave empty if no auth), `replyModelQueue`, `tls`
+Detailed usage notes and tool references live under:
 
-## Tools
+- `skills/ibm-mq-mcp/references/connection-and-tools.md`
 
-### Query
-- `get_queue_manager` - Queue manager properties
-- `list_queues` - List queues (`namePattern`, `includeSystem`)
-- `get_queue` - Single queue details
-- `list_channels` - List channels
-- `get_channel` - Single channel status
-
-### Queue Mutation
-- `create_local_queue` - Create queue
-- `update_queue` - Update attributes
-- `clear_queue` - Clear messages
-- `delete_queue` - Delete queue
-
-### Channel
-- `create_channel` - Create channel (type: SVRCONN, SDR, RCVR, CLNTCONN)
-- `delete_channel`, `start_channel`, `stop_channel`
-
-### Messaging
-- `browse_messages` - Browse without consuming (`maxMessages`)
-- `put_test_message` - Put message (`payloadText`, `format`, `persistent`)
-
-## Notes
-
-- `user`/`password` optional - leave empty if no auth required
-- `browse_messages` is read-only
-- Mutation tools return `{ "success": true/false, "reason": "" }`
+For end-to-end setup instructions, follow the repository README.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "IBM MQ MCP"
+  short_description: "Connect IBM MQ queues, channels, and messages"
+  default_prompt: "Use $ibm-mq-mcp to inspect or manage IBM MQ queues, channels, and messages through the local MCP server."
