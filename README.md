@@ -40,7 +40,7 @@ A Go-based MCP (Model Context Protocol) server for IBM MQ management via PCF (Pr
 
 ```bash
 # Clone and build
-git clone https://github.com/houpeng/ibm-mq-mcp.git
+git clone https://github.com/denushp/ibm-mq-mcp.git
 cd ibm-mq-mcp
 
 # Build
@@ -49,12 +49,8 @@ export CGO_LDFLAGS="-L$MQ_INSTALL_PATH/lib64"
 export DYLD_LIBRARY_PATH=$MQ_INSTALL_PATH/lib64  # macOS only
 go build -tags mqclient -o ibm-mq-mcp ./cmd/ibm-mq-mcp
 
-# Install to user bin (cross-platform)
-mkdir -p ~/bin
-mv ibm-mq-mcp ~/bin/
-
-# Add ~/bin to PATH if needed
-export PATH="$HOME/bin:$PATH"
+# Install to user home (cross-platform)
+mv ibm-mq-mcp ~/ibm-mq-mcp
 ```
 
 ### 2. Configure AI Agent
@@ -65,7 +61,7 @@ export PATH="$HOME/bin:$PATH"
 {
   "mcpServers": {
     "ibm-mq": {
-      "command": "~/bin/ibm-mq-mcp"
+      "command": "~/ibm-mq-mcp"
     }
   }
 }
@@ -76,7 +72,7 @@ export PATH="$HOME/bin:$PATH"
 ```toml
 [mcp_servers.ibm-mq]
 type = "stdio"
-command = "~/bin/ibm-mq-mcp"
+command = "~/ibm-mq-mcp"
 ```
 
 ### 3. Project Setup (per-project)
