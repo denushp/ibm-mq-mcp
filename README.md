@@ -49,8 +49,12 @@ export CGO_LDFLAGS="-L$MQ_INSTALL_PATH/lib64"
 export DYLD_LIBRARY_PATH=$MQ_INSTALL_PATH/lib64  # macOS only
 go build -tags mqclient -o ibm-mq-mcp ./cmd/ibm-mq-mcp
 
-# Install globally (optional)
-sudo mv ibm-mq-mcp /usr/local/bin/
+# Install to user bin (cross-platform)
+mkdir -p ~/bin
+mv ibm-mq-mcp ~/bin/
+
+# Add ~/bin to PATH if needed
+export PATH="$HOME/bin:$PATH"
 ```
 
 ### 2. Configure AI Agent
@@ -61,7 +65,7 @@ sudo mv ibm-mq-mcp /usr/local/bin/
 {
   "mcpServers": {
     "ibm-mq": {
-      "command": "/usr/local/bin/ibm-mq-mcp"
+      "command": "~/bin/ibm-mq-mcp"
     }
   }
 }
@@ -72,7 +76,7 @@ sudo mv ibm-mq-mcp /usr/local/bin/
 ```toml
 [mcp_servers.ibm-mq]
 type = "stdio"
-command = "/usr/local/bin/ibm-mq-mcp"
+command = "~/bin/ibm-mq-mcp"
 ```
 
 ### 3. Project Setup (per-project)
